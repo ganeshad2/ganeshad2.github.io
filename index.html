@@ -3,159 +3,306 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dinoyan Ganeshalingam</title>
+    <title>Will You Be My Valentine? 💕</title>
     <style>
-        body {
-            font-family: Arial, sans-serif;
+        * {
             margin: 0;
             padding: 0;
-            background-color: #E0E7C6; /* Light green background */
+            box-sizing: border-box;
         }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            overflow: hidden;
+            position: relative;
+        }
+
+        /* Floating hearts background */
+        .heart-bg {
+            position: absolute;
+            font-size: 30px;
+            opacity: 0.3;
+            animation: float 6s infinite ease-in-out;
+        }
+
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0) rotate(0deg);
+            }
+            50% {
+                transform: translateY(-30px) rotate(10deg);
+            }
+        }
+
         .container {
-            max-width: 800px;
-            margin: 50px auto;
-            padding: 20px;
-            background-color: #F5F5F5; /* Light greenish white for container background */
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            border-radius: 10px; /* Rounded corners for a softer look */
+            background: white;
+            padding: 60px 50px;
+            border-radius: 30px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            text-align: center;
+            max-width: 500px;
+            width: 90%;
+            position: relative;
+            z-index: 10;
+            animation: slideIn 0.6s ease-out;
         }
-        h1, h2 {
-            color: #333;
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
-        .section {
+
+        .cybertruck-img {
+            width: 120px;
+            height: auto;
+            margin-bottom: 10px;
+            opacity: 0.8;
+        }
+
+        .heart-icon {
+            font-size: 80px;
+            animation: heartbeat 1.5s infinite;
+            display: inline-block;
             margin-bottom: 20px;
         }
-        .tags {
+
+        @keyframes heartbeat {
+            0%, 100% {
+                transform: scale(1);
+            }
+            10%, 30% {
+                transform: scale(1.1);
+            }
+            20%, 40% {
+                transform: scale(1);
+            }
+        }
+
+        h1 {
+            color: #764ba2;
+            font-size: 2.5em;
+            margin-bottom: 30px;
+            font-weight: 700;
+        }
+
+        .buttons {
             display: flex;
-            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+            margin-top: 40px;
         }
-        .tag {
-            background-color: #C9D8B6; /* Slightly darker green for tags */
-            margin: 5px;
-            padding: 10px;
-            border-radius: 5px;
-            font-size: 14px;
+
+        button {
+            padding: 15px 40px;
+            font-size: 1.2em;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
         }
-        .projects {
-            display: flex;
-            flex-wrap: wrap;
+
+        .yes-btn {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            color: white;
         }
-        .project {
-            background-color: #F5F5F5; /* Light greenish white for project background */
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            margin: 10px;
-            padding: 10px;
-            width: calc(50% - 40px);
-            box-sizing: border-box;
-            border-radius: 5px;
+
+        .yes-btn:hover {
+            transform: scale(1.1);
+            box-shadow: 0 6px 20px rgba(245, 87, 108, 0.4);
         }
-        .project img {
-            max-width: 100%;
-            border-radius: 5px;
+
+        .no-btn {
+            background: #e0e0e0;
+            color: #999;
+            cursor: not-allowed;
+            opacity: 0.6;
         }
-        .project a {
-            display: block;
-            margin-top: 10px;
-            color: #1a73e8;
-            text-decoration: none;
+
+        /* Modal styles */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+            animation: fadeIn 0.3s ease;
         }
-        .project a:hover {
-            text-decoration: underline;
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
         }
-        a {
-            color: #1a73e8;
-            text-decoration: none;
+
+        .modal-content {
+            background: white;
+            padding: 50px;
+            border-radius: 30px;
+            text-align: center;
+            max-width: 400px;
+            width: 90%;
+            animation: popIn 0.5s ease;
+            position: relative;
         }
-        a:hover {
-            text-decoration: underline;
+
+        @keyframes popIn {
+            0% {
+                transform: scale(0.5);
+                opacity: 0;
+            }
+            100% {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+
+        .modal-heart {
+            font-size: 100px;
+            animation: heartbeat 1s infinite;
+            margin-bottom: 20px;
+        }
+
+        .modal-content h2 {
+            color: #f5576c;
+            font-size: 2.5em;
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+
+        .modal-content p {
+            color: #764ba2;
+            font-size: 1.3em;
+            font-weight: 500;
+        }
+
+        /* Confetti */
+        .confetti {
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            background: #f5576c;
+            animation: confettiFall 3s linear infinite;
+        }
+
+        @keyframes confettiFall {
+            to {
+                transform: translateY(100vh) rotate(360deg);
+                opacity: 0;
+            }
+        }
+
+        @media (max-width: 600px) {
+            h1 {
+                font-size: 2em;
+            }
+            
+            .buttons {
+                flex-direction: column;
+            }
+            
+            button {
+                width: 100%;
+            }
         }
     </style>
 </head>
 <body>
+    <!-- Background hearts -->
+    <div class="heart-bg" style="top: 10%; left: 10%;">💕</div>
+    <div class="heart-bg" style="top: 20%; right: 15%; animation-delay: 1s;">❤️</div>
+    <div class="heart-bg" style="bottom: 15%; left: 20%; animation-delay: 2s;">💗</div>
+    <div class="heart-bg" style="bottom: 25%; right: 10%; animation-delay: 1.5s;">💖</div>
+    <div class="heart-bg" style="top: 50%; left: 5%; animation-delay: 0.5s;">💝</div>
+    <div class="heart-bg" style="top: 60%; right: 5%; animation-delay: 2.5s;">💓</div>
+
     <div class="container">
-        <h1>Dinoyan Ganeshalingam</h1>
-        <p>Hey, I’m Dinoyan, I’m studying Computer Engineering (Level 3) at McMaster University and expected to graduate in April 2026. I'm currently working
-            at AMD as SoC Power Analysis and Design Verification Engineer (Co-op)
-            .I love designing and simulating circuits using HDL, and building different types of circuits on a breadboard. Also, I have an interest in networking and cloud computing.</p>
-
-        <div class="section">
-            <h2>Skills</h2>
-            <div class="tags">
-                <div class="tag">Verilog</div>
-                <div class="tag">Python</div>
-                <div class="tag">C</div>
-                <div class="tag">Java</div>
-                <div class="tag">MATLAB</div>
-                <div class="tag">VHDL</div>
-                <div class="tag">Terraform</div>
-                <div class="tag">Azure</div>
-            </div>
-        </div>
-
-        <div class="section">
-            <h2>Tools</h2>
-            <div class="tags">
-                <div class="tag">Xilinx Vivado</div>
-                <div class="tag">OrCAD</div>
-                <div class="tag">Oscilloscope</div>
-                <div class="tag">Function Generator</div>
-                <div class="tag">DMM</div>
-                <div class="tag">Soldering</div>
-                <div class="tag">Hand Power tools</div>
-                <div class="tag">CISCO ASA Firewalls</div>
-                <div class="tag">FortiGate Firewall</div>
-                <div class="tag">Xilinx Artix 7 FPGA Board</div>
-            </div>
-        </div>
-
-        <div class="section">
-            <h2>Certification</h2>
-            <div class="tags">
-                <div class="tag">AZ-900 Microsoft Azure Fundamentals</div>
-            </div>
-        </div>
-
-        <div class="section">
-            <h2>Interests</h2>
-            <div class="tags">
-                <div class="tag">ASIC</div>
-                <div class="tag">FPGA</div>
-                <div class="tag">Digital Design</div>
-                <div class="tag">Mixed Signals</div>
-                <div class="tag">SPICE simulations</div>
-                <div class="tag">Static Timing Analysis (STA)</div>
-                <div class="tag">Firewalls</div>
-            </div>
-        </div>
-
-        <div class="section">
-            <h2>Projects</h2>
-            <div class="projects">
-                <div class="project">
-                    <img src="project1.jpg" alt="Project 1">
-                    <a href="project1.html">Verilog/Artix 7 Board 4 to 1 Multiplexer/ Mux</a>
-                </div>
-                <div class="project">
-                    <img src="project2.jpg" alt="Project 2">
-                    <a href="project2.html">Half-Adder</a>
-                </div>
-                <div class="project">
-                    <img src="project3.jpg" alt="Project 3">
-                    <a href="project3.html">4 bit ALU - Verilog</a>
-                </div>
-                <div class="project">
-                    <img src="project4.jpg" alt="Project 4">
-                    <a href="project4.html">Hybrid Cloud - Azure</a>
-                </div>
-            </div>
-        </div>
-
-        <div class="section">
-            <h2>Links</h2>
-            <p><a href="https://www.notion.so/dinoyan/Technical-Knowledge-Book-dinoyan.notion.site" target="_blank">Technical Knowledge Book</a></p>
-            <p><a href="https://www.notion.so/dinoyan/Projects-dinoyan.notion.site" target="_blank">Projects</a></p>
-            <p><a href="https://prod-files-secure.s3.us-west-2.amazonaws.com/Dinoyan_resume.pdf" target="_blank">Resume</a></p>
+        <!-- Cybertruck SVG -->
+        <svg class="cybertruck-img" viewBox="0 0 200 100" xmlns="http://www.w3.org/2000/svg">
+            <g fill="#C0C0C0" stroke="#808080" stroke-width="2">
+                <!-- Body -->
+                <polygon points="30,70 50,40 90,30 130,30 160,50 170,70" fill="#E8E8E8"/>
+                <!-- Windows -->
+                <polygon points="55,42 85,35 85,50 60,50" fill="#87CEEB" opacity="0.6"/>
+                <polygon points="95,35 125,35 145,50 95,50" fill="#87CEEB" opacity="0.6"/>
+                <!-- Wheels -->
+                <circle cx="60" cy="75" r="12" fill="#333"/>
+                <circle cx="60" cy="75" r="6" fill="#666"/>
+                <circle cx="145" cy="75" r="12" fill="#333"/>
+                <circle cx="145" cy="75" r="6" fill="#666"/>
+                <!-- Details -->
+                <line x1="90" y1="30" x2="90" y2="70" stroke="#999" stroke-width="1"/>
+            </g>
+        </svg>
+        
+        <div class="heart-icon">💖</div>
+        <h1>Will You Be My Valentine?</h1>
+        <div class="buttons">
+            <button class="yes-btn" onclick="showLove()">Yes! 💕</button>
+            <button class="no-btn" disabled>No</button>
         </div>
     </div>
+
+    <!-- Modal -->
+    <div class="modal" id="loveModal">
+        <div class="modal-content">
+            <div class="modal-heart">❤️</div>
+            <h2>I Love You</h2>
+            <p>Lilaani</p>
+        </div>
+    </div>
+
+    <script>
+        function showLove() {
+            const modal = document.getElementById('loveModal');
+            modal.style.display = 'flex';
+            createConfetti();
+        }
+
+        function createConfetti() {
+            const colors = ['#f5576c', '#f093fb', '#764ba2', '#667eea', '#ff6b9d'];
+            
+            for (let i = 0; i < 50; i++) {
+                setTimeout(() => {
+                    const confetti = document.createElement('div');
+                    confetti.className = 'confetti';
+                    confetti.style.left = Math.random() * 100 + '%';
+                    confetti.style.background = colors[Math.floor(Math.random() * colors.length)];
+                    confetti.style.animationDelay = Math.random() * 2 + 's';
+                    confetti.style.animationDuration = (Math.random() * 2 + 2) + 's';
+                    document.body.appendChild(confetti);
+                    
+                    setTimeout(() => confetti.remove(), 5000);
+                }, i * 50);
+            }
+        }
+
+        // Close modal when clicking outside
+        document.getElementById('loveModal').addEventListener('click', function(e) {
+            if (e.target === this) {
+                this.style.display = 'none';
+            }
+        });
+    </script>
 </body>
 </html>
