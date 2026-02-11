@@ -3,10 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dinoyan Ganeshalingam - Computer Engineering</title>
+    <title>Dinoyan • Hardware Engineer</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Product+Sans&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
     <style>
         * {
             margin: 0;
@@ -14,650 +14,865 @@
             box-sizing: border-box;
         }
 
+        html {
+            scroll-behavior: smooth;
+        }
+
         :root {
-            --bg: #ffffff;
-            --surface: #f5f5f7;
-            --accent: #0071e3;
-            --accent-dim: #0077ed;
-            --text: #1d1d1f;
-            --text-dim: #6e6e73;
-            --border: #d2d2d7;
-            --highlight: #0071e3;
+            --blue: #4285f4;
+            --red: #ea4335;
+            --yellow: #fbbc04;
+            --green: #34a853;
+            --dark: #202124;
+            --grey-dark: #5f6368;
+            --grey-medium: #80868b;
+            --grey-light: #dadce0;
+            --grey-bg: #f8f9fa;
+            --white: #ffffff;
         }
 
         body {
-            background: var(--bg);
-            color: var(--text);
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-            line-height: 1.5;
-            min-height: 100vh;
-            overflow-x: hidden;
-            font-size: 1rem;
-            font-weight: 400;
-            -webkit-font-smoothing: antialiased;
-            -moz-osx-font-smoothing: grayscale;
+            font-family: 'Roboto', -apple-system, BlinkMacSystemFont, sans-serif;
+            color: var(--dark);
+            background: var(--white);
+            line-height: 1.6;
         }
 
-        /* Clean subtle gradient background */
-        body::before {
-            content: '';
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(180deg, #ffffff 0%, #f5f5f7 100%);
-            z-index: 0;
-        }
-
-        /* Subtle floating accent elements */
-        .accent-circle {
-            position: fixed;
-            border-radius: 50%;
-            filter: blur(100px);
-            opacity: 0.18;
-            z-index: 0;
-            animation: float 20s ease-in-out infinite;
-        }
-
-        .accent-circle.one {
-            width: 500px;
-            height: 500px;
-            background: var(--accent);
-            top: -250px;
-            right: -150px;
-            animation-delay: 0s;
-        }
-
-        .accent-circle.two {
-            width: 400px;
-            height: 400px;
-            background: var(--accent);
-            bottom: -200px;
-            left: -150px;
-            animation-delay: 10s;
-        }
-
-        @keyframes float {
-            0%, 100% { transform: translate(0, 0) rotate(0deg); }
-            33% { transform: translate(30px, -30px) rotate(5deg); }
-            66% { transform: translate(-20px, 20px) rotate(-5deg); }
-        }
-
-        .container {
-            position: relative;
-            z-index: 1;
-            max-width: 980px;
-            margin: 0 auto;
-            padding: 80px 40px;
-        }
-
-        /* Header with typing effect */
-        header {
-            margin-bottom: 60px;
-            animation: slideDown 0.8s ease-out;
-        }
-
-        @keyframes slideDown {
-            from { opacity: 0; transform: translateY(-30px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        .name {
-            font-family: 'Poppins', -apple-system, sans-serif;
-            font-size: 5rem;
-            font-weight: 700;
-            margin-bottom: 16px;
-            color: var(--text);
-            letter-spacing: -0.04em;
-            line-height: 1;
-        }
-
-
-        .location {
-            color: var(--text-dim);
-            font-size: 1.1rem;
-            margin-bottom: 8px;
-            font-weight: 400;
-        }
-
-        .location::before {
-            content: '';
-        }
-
-        .status-badge {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            background: var(--surface);
-            padding: 10px 20px;
-            border-radius: 100px;
-            border: none;
-            font-size: 0.9rem;
-            margin-top: 16px;
-            animation: fadeIn 1s ease-out 0.3s backwards;
-            font-weight: 500;
-            color: var(--text);
-        }
-
-        .status-dot {
-            width: 6px;
-            height: 6px;
-            background: var(--accent);
-            border-radius: 50%;
-            animation: pulse 2s ease-in-out infinite;
-        }
-
-        @keyframes pulse {
-            0%, 100% { opacity: 1; transform: scale(1); }
-            50% { opacity: 0.6; transform: scale(1.2); }
-        }
-
-        /* Section styling */
-        section {
-            margin-bottom: 64px;
-            animation: fadeIn 0.8s ease-out backwards;
-        }
-
-        section:nth-child(2) { animation-delay: 0.2s; }
-        section:nth-child(3) { animation-delay: 0.4s; }
-        section:nth-child(4) { animation-delay: 0.6s; }
-        section:nth-child(5) { animation-delay: 0.8s; }
-        section:nth-child(6) { animation-delay: 1s; }
-
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        .section-title {
-            font-size: 0.8rem;
-            text-transform: uppercase;
-            letter-spacing: 0.15em;
-            color: var(--text-dim);
-            margin-bottom: 24px;
-            font-weight: 600;
-        }
-
-        .section-title::before {
-            content: '';
-        }
-
-        /* Experience cards */
-        .experience-item {
-            background: var(--bg);
-            border: 1px solid var(--border);
-            border-radius: 16px;
-            padding: 32px;
-            margin-bottom: 16px;
-            position: relative;
-            overflow: hidden;
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
-            display: flex;
-            flex-direction: column;
-        }
-
-        .experience-header {
+        /* Top Bar */
+        .top-bar {
+            background: var(--white);
+            border-bottom: 1px solid var(--grey-light);
+            padding: 12px 24px;
             display: flex;
             justify-content: space-between;
-            align-items: flex-start;
-            margin-bottom: 12px;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 1px 6px rgba(32, 33, 36, 0.08);
         }
 
-        .experience-left {
-            flex: 1;
-        }
-
-        .experience-dates {
-            text-align: right;
-            color: var(--text-dim);
-            font-size: 0.85rem;
-            white-space: nowrap;
-            margin-left: 20px;
-        }
-
-        .experience-right {
+        .logo-area {
             display: flex;
-            flex-direction: column;
-            align-items: flex-end;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .google-dots {
+            display: flex;
             gap: 4px;
         }
 
-        .experience-item::before {
+        .g-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+        }
+
+        .profile-section {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .profile-btn {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: var(--blue);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Product Sans', sans-serif;
+            font-size: 1rem;
+            font-weight: 500;
+            cursor: pointer;
+            border: none;
+        }
+
+        /* Hero */
+        .hero {
+            padding: 120px 48px 80px;
+            background: linear-gradient(180deg, var(--grey-bg) 0%, var(--white) 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
             content: '';
             position: absolute;
             top: 0;
-            left: 0;
-            width: 0;
-            height: 100%;
-            background: var(--accent);
-            opacity: 0;
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            right: 0;
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(66, 133, 244, 0.12), transparent 70%);
+            border-radius: 50%;
         }
 
-        .experience-item:hover {
-            border-color: rgba(0, 113, 227, 0.3);
-            transform: translateY(-4px);
-            box-shadow: 0 12px 40px rgba(0, 113, 227, 0.12);
+        .hero-content {
+            max-width: 1000px;
+            margin: 0 auto;
+            position: relative;
         }
 
-        .experience-item:hover::before {
-            opacity: 0;
+        .greeting {
+            font-family: 'Product Sans', sans-serif;
+            font-size: 1rem;
+            color: var(--grey-dark);
+            margin-bottom: 16px;
         }
 
-        .company-logo {
-            width: 56px;
-            height: 56px;
-            background: var(--surface);
-            border-radius: 12px;
+        .hero-name {
+            font-family: 'Product Sans', sans-serif;
+            font-size: 5rem;
+            font-weight: 400;
+            margin-bottom: 24px;
+            color: var(--dark);
+            line-height: 1;
+        }
+
+        .name-letter {
+            display: inline-block;
+            transition: transform 0.3s;
+        }
+
+        .name-letter:hover {
+            transform: translateY(-10px);
+        }
+
+        .name-letter:nth-child(1) { color: var(--blue); }
+        .name-letter:nth-child(2) { color: var(--red); }
+        .name-letter:nth-child(3) { color: var(--yellow); }
+        .name-letter:nth-child(4) { color: var(--green); }
+        .name-letter:nth-child(5) { color: var(--blue); }
+        .name-letter:nth-child(6) { color: var(--red); }
+        .name-letter:nth-child(7) { color: var(--yellow); }
+
+        .hero-role {
+            font-size: 1.75rem;
+            color: var(--grey-dark);
+            margin-bottom: 16px;
+            font-weight: 300;
+        }
+
+        .hero-location {
+            font-size: 1rem;
+            color: var(--grey-medium);
+            margin-bottom: 40px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .location-icon {
+            width: 20px;
+            height: 20px;
+        }
+
+        .hero-actions {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+
+        .g-button {
+            padding: 10px 24px;
+            border-radius: 4px;
+            font-family: 'Roboto', sans-serif;
+            font-size: 0.875rem;
+            font-weight: 500;
+            cursor: pointer;
+            border: none;
+            transition: all 0.2s;
+            text-decoration: none;
             display: inline-flex;
             align-items: center;
-            justify-content: center;
-            margin-bottom: 16px;
-            border: none;
-            padding: 12px;
+            gap: 8px;
         }
 
-        .company-logo img {
+        .g-button-filled {
+            background: var(--blue);
+            color: white;
+        }
+
+        .g-button-filled:hover {
+            background: #1a73e8;
+            box-shadow: 0 1px 2px 0 rgba(66, 133, 244, 0.3), 0 1px 3px 1px rgba(66, 133, 244, 0.15);
+        }
+
+        .g-button-outlined {
+            background: white;
+            color: var(--blue);
+            border: 1px solid var(--grey-light);
+        }
+
+        .g-button-outlined:hover {
+            background: var(--grey-bg);
+            border-color: var(--grey-medium);
+        }
+
+        /* Main Content */
+        .main-content {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 64px 48px;
+        }
+
+        /* Section */
+        .content-section {
+            margin-bottom: 72px;
+            scroll-margin-top: 80px;
+        }
+
+        .section-header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 32px;
+            padding-bottom: 16px;
+            border-bottom: 1px solid var(--grey-light);
+        }
+
+        .section-icon {
+            width: 32px;
+            height: 32px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+        }
+
+        .section-title {
+            font-family: 'Product Sans', sans-serif;
+            font-size: 2rem;
+            font-weight: 400;
+            color: var(--dark);
+        }
+
+        /* Experience Timeline */
+        .timeline {
+            position: relative;
+            padding-left: 40px;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 8px;
+            top: 8px;
+            bottom: 8px;
+            width: 2px;
+            background: linear-gradient(180deg, var(--blue), var(--red), var(--yellow), var(--green));
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 48px;
+            background: white;
+            padding: 24px;
+            border-radius: 8px;
+            border: 1px solid var(--grey-light);
+            transition: all 0.2s;
+        }
+
+        .timeline-item:hover {
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.08);
+            transform: translateX(8px);
+        }
+
+        .timeline-dot {
+            position: absolute;
+            left: -32px;
+            top: 24px;
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+            border: 3px solid white;
+            box-shadow: 0 0 0 2px;
+        }
+
+        .timeline-item:nth-child(1) .timeline-dot { 
+            background: var(--blue);
+            box-shadow: 0 0 0 2px var(--blue);
+        }
+
+        .timeline-item:nth-child(2) .timeline-dot { 
+            background: var(--red);
+            box-shadow: 0 0 0 2px var(--red);
+        }
+
+        .company-header {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            margin-bottom: 16px;
+        }
+
+        .company-icon {
+            width: 56px;
+            height: 56px;
+            border-radius: 12px;
+            background: var(--grey-bg);
+            padding: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .company-icon img {
             width: 100%;
             height: 100%;
             object-fit: contain;
         }
 
-        .role {
-            font-size: 1.1rem;
-            font-weight: 600;
-            color: var(--text);
-            margin-bottom: 6px;
-            line-height: 1.3;
+        .company-info {
+            flex: 1;
         }
 
-        .company {
-            color: var(--text-dim);
+        .job-title {
+            font-family: 'Product Sans', sans-serif;
+            font-size: 1.25rem;
+            color: var(--dark);
+            margin-bottom: 4px;
+        }
+
+        .company-name {
             font-size: 1rem;
+            color: var(--blue);
             font-weight: 500;
         }
 
-        .job-location {
-            color: var(--text-dim);
-            font-size: 0.85rem;
-            text-align: right;
+        .job-details {
+            display: flex;
+            gap: 24px;
+            color: var(--grey-dark);
+            font-size: 0.875rem;
+            margin-bottom: 16px;
+            flex-wrap: wrap;
         }
 
-        .job-skills {
+        .job-detail {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .skill-pills {
             display: flex;
             flex-wrap: wrap;
             gap: 8px;
-            margin-top: 16px;
         }
 
-        .skill-tag {
-            background: var(--surface);
-            border: 1px solid var(--border);
-            padding: 6px 12px;
-            border-radius: 20px;
-            font-size: 0.8rem;
-            color: var(--text-dim);
-            transition: all 0.3s ease;
-        }
-
-        .skill-tag:hover {
-            background: var(--accent);
-            color: #ffffff;
-            border-color: var(--accent);
-        }
-
-        /* Education */
-        .education-card {
-            background: var(--bg);
-            border: 1px solid var(--border);
+        .skill-pill {
+            background: var(--grey-bg);
+            padding: 6px 16px;
             border-radius: 16px;
+            font-size: 0.813rem;
+            color: var(--grey-dark);
+            font-weight: 500;
+            border: 1px solid var(--grey-light);
+        }
+
+        /* Education Card */
+        .edu-card {
+            background: linear-gradient(135deg, var(--green) 0%, #2d8a4a 100%);
+            color: white;
             padding: 32px;
-            position: relative;
-            overflow: hidden;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(52, 168, 83, 0.2);
         }
 
-        .education-card::after {
-            content: '';
-            position: absolute;
-            right: 32px;
-            top: 50%;
-            transform: translateY(-50%);
-            font-size: 3rem;
-            opacity: 0;
-        }
-
-        .degree {
-            font-size: 1.1rem;
-            font-weight: 600;
-            margin-bottom: 8px;
-            color: var(--text);
-        }
-
-        .university {
-            color: var(--accent);
-            font-weight: 600;
-            margin-bottom: 6px;
-            font-size: 1rem;
-        }
-
-        .graduation {
-            color: var(--text-dim);
-            font-size: 0.95rem;
-            font-weight: 500;
-        }
-
-        /* Interests tags */
-        .interests-grid {
+        .edu-icon {
+            width: 64px;
+            height: 64px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
             display: flex;
-            flex-wrap: wrap;
-            gap: 12px;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 24px;
+            font-size: 2rem;
         }
 
-        .interest-tag {
-            background: var(--surface);
-            border: none;
-            padding: 12px 20px;
-            border-radius: 100px;
-            font-size: 0.95rem;
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            cursor: default;
-            position: relative;
-            font-weight: 500;
-            color: var(--text);
+        .edu-degree {
+            font-family: 'Product Sans', sans-serif;
+            font-size: 1.5rem;
+            margin-bottom: 8px;
         }
 
-        .interest-tag::before {
-            content: '';
-            margin-right: 0;
-            opacity: 0;
+        .edu-school {
+            font-size: 1.125rem;
+            margin-bottom: 8px;
+            opacity: 0.95;
         }
 
-        .interest-tag:hover {
-            background: var(--accent);
-            color: #ffffff;
-            transform: translateY(-2px) scale(1.02);
-            box-shadow: 0 8px 20px rgba(0, 113, 227, 0.25);
+        .edu-date {
+            font-size: 0.875rem;
+            opacity: 0.85;
         }
 
-        .interest-tag:hover::before {
-            opacity: 0;
-        }
-
-        /* Projects */
-        .projects-list {
+        /* Interests Grid */
+        .interests-grid {
             display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
             gap: 16px;
         }
 
-        .project-item {
-            background: var(--bg);
-            border: 1px solid var(--border);
-            border-radius: 16px;
-            padding: 28px 32px;
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-            cursor: pointer;
-            position: relative;
+        .interest-item {
+            background: white;
+            padding: 24px;
+            border-radius: 8px;
+            border: 1px solid var(--grey-light);
+            transition: all 0.2s;
+            text-align: center;
+        }
+
+        .interest-item:hover {
+            border-color: var(--blue);
+            box-shadow: 0 4px 8px rgba(66, 133, 244, 0.12);
+            transform: translateY(-4px);
+        }
+
+        .interest-emoji {
+            font-size: 2.5rem;
+            margin-bottom: 12px;
+            display: block;
+        }
+
+        .interest-name {
+            font-family: 'Product Sans', sans-serif;
+            font-size: 1rem;
+            color: var(--dark);
+        }
+
+        /* Projects Grid */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 24px;
+        }
+
+        .project-card {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            border: 1px solid var(--grey-light);
+            transition: all 0.2s;
             text-decoration: none;
             color: inherit;
             display: block;
         }
-            cursor: pointer;
-            position: relative;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+
+        .project-card:hover {
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.12);
+            transform: translateY(-4px);
         }
 
-        .project-item::after {
-            content: '→';
-            position: absolute;
-            right: 32px;
-            top: 50%;
-            transform: translateY(-50%);
-            color: var(--accent);
-            font-size: 1.5rem;
-            opacity: 0;
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        .project-header {
+            height: 8px;
         }
 
-        .project-item:hover {
-            border-color: rgba(0, 113, 227, 0.3);
-            padding-right: 60px;
-            transform: translateY(-2px);
-            box-shadow: 0 8px 24px rgba(0, 113, 227, 0.1);
+        .project-header.blue { background: var(--blue); }
+        .project-header.red { background: var(--red); }
+        .project-header.yellow { background: var(--yellow); }
+
+        .project-body {
+            padding: 24px;
         }
 
-        .project-item:hover::after {
-            opacity: 1;
-            right: 32px;
-        }
-
-        .project-title {
-            font-weight: 600;
-            color: var(--text);
+        .project-name {
+            font-family: 'Product Sans', sans-serif;
+            font-size: 1.25rem;
+            color: var(--dark);
             margin-bottom: 8px;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            font-size: 1.05rem;
         }
 
-        .project-label {
-            font-size: 0.7rem;
-            background: var(--surface);
-            padding: 4px 10px;
-            border-radius: 6px;
-            color: var(--accent);
-            text-transform: uppercase;
-            font-weight: 600;
-            letter-spacing: 0.05em;
+        .project-tech {
+            display: inline-block;
+            background: var(--blue);
+            color: white;
+            padding: 4px 12px;
+            border-radius: 12px;
+            font-size: 0.75rem;
+            font-weight: 500;
+            margin-bottom: 12px;
         }
 
-        .project-description {
-            color: var(--text-dim);
-            font-size: 0.95rem;
+        .project-desc {
+            color: var(--grey-dark);
+            font-size: 0.875rem;
             line-height: 1.5;
+            margin-bottom: 16px;
         }
 
-        /* Contact */
-        .contact-links {
-            display: flex;
-            gap: 16px;
-            flex-wrap: wrap;
-        }
-
-        .contact-link {
+        .project-link {
+            color: var(--blue);
+            font-size: 0.875rem;
+            font-weight: 500;
             display: inline-flex;
             align-items: center;
-            gap: 10px;
-            padding: 14px 24px;
-            background: var(--surface);
-            border: none;
-            border-radius: 100px;
-            color: var(--text);
-            text-decoration: none;
-            font-size: 0.95rem;
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            font-weight: 500;
+            gap: 4px;
         }
 
-        .contact-link:hover {
-            background: var(--accent);
-            color: #ffffff;
-            transform: translateY(-2px);
-            box-shadow: 0 8px 24px rgba(0, 113, 227, 0.3);
+        /* Contact Section */
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 16px;
+        }
+
+        .contact-item {
+            background: white;
+            border: 1px solid var(--grey-light);
+            border-radius: 8px;
+            padding: 24px;
+            text-align: center;
+            text-decoration: none;
+            color: inherit;
+            transition: all 0.2s;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .contact-item:hover {
+            border-color: var(--blue);
+            box-shadow: 0 4px 8px rgba(66, 133, 244, 0.12);
         }
 
         .contact-icon {
-            font-size: 1.2rem;
+            width: 56px;
+            height: 56px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+        }
+
+        .contact-icon.blue { background: rgba(66, 133, 244, 0.1); }
+        .contact-icon.red { background: rgba(234, 67, 53, 0.1); }
+        .contact-icon.green { background: rgba(52, 168, 83, 0.1); }
+
+        .contact-label {
+            font-family: 'Product Sans', sans-serif;
+            font-size: 1rem;
+            color: var(--dark);
         }
 
         /* Footer */
         footer {
+            background: var(--grey-bg);
+            padding: 48px 48px 32px;
+            margin-top: 80px;
+        }
+
+        .footer-content {
+            max-width: 1000px;
+            margin: 0 auto;
             text-align: center;
-            padding: 48px 0;
-            color: var(--text-dim);
-            font-size: 0.9rem;
-            border-top: 1px solid var(--border);
-            margin-top: 100px;
-            font-weight: 400;
+        }
+
+        .footer-dots {
+            display: flex;
+            justify-content: center;
+            gap: 8px;
+            margin-bottom: 24px;
+        }
+
+        .footer-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+        }
+
+        .footer-text {
+            color: var(--grey-dark);
+            font-size: 0.875rem;
         }
 
         /* Responsive */
         @media (max-width: 768px) {
-            .name {
+            .hero {
+                padding: 80px 24px 60px;
+            }
+
+            .hero-name {
                 font-size: 3rem;
             }
 
-            .container {
-                padding: 40px 20px;
+            .main-content {
+                padding: 48px 24px;
             }
 
-            .experience-item:hover {
-                transform: translateY(-2px);
+            .timeline {
+                padding-left: 32px;
+            }
+
+            .projects-grid {
+                grid-template-columns: 1fr;
             }
         }
 
+        /* Utility */
+        .icon {
+            width: 20px;
+            height: 20px;
+            display: inline-block;
+        }
     </style>
 </head>
 <body>
-    <div class="accent-circle one"></div>
-    <div class="accent-circle two"></div>
-
-    <div class="container">
-        <header>
-            <h1 class="name">Dinoyan Ganeshalingam</h1>
-            <p class="location">Toronto, Ontario</p>
-        </header>
-
-        <section>
-            <h2 class="section-title">experience</h2>
-            
-            <div class="experience-item">
-                <div class="experience-header">
-                    <div class="experience-left">
-                        <div class="company-logo">
-                            <img src=Tesla.png alt="Tesla">
-                        </div>
-                        <div class="role">Manufacturing Test Engineering Intern</div>
-                        <div class="company">Tesla</div>
-                    </div>
-                    <div class="experience-right">
-                        <div class="experience-dates">May 2025 - Sept 2025</div>
-                        <div class="job-location">Fremont, CA</div>
-                    </div>
-                </div>
-                <div class="job-skills">
-                    <div class="skill-tag">CAN</div>
-                    <div class="skill-tag">CPK/GRR</div>
-                    <div class="skill-tag">ATE</div>
-                    <div class="skill-tag">LCR Meter</div>
-                    <div class="skill-tag">Troubleshooting</div>
-                </div>
+    <!-- Top Bar -->
+    <div class="top-bar">
+        <div class="logo-area">
+            <div class="google-dots">
+                <div class="g-dot" style="background: #4285f4;"></div>
+                <div class="g-dot" style="background: #ea4335;"></div>
+                <div class="g-dot" style="background: #fbbc04;"></div>
+                <div class="g-dot" style="background: #34a853;"></div>
             </div>
-
-            <div class="experience-item">
-                <div class="experience-header">
-                    <div class="experience-left">
-                        <div class="company-logo">
-                            <img src=AMD.png alt="AMD">
-                        </div>
-                        <div class="role">SoC Design Verification & Power Analysis Engineering Intern</div>
-                        <div class="company">AMD</div>
-                    </div>
-                    <div class="experience-right">
-                        <div class="experience-dates">May 2024 - May 2025</div>
-                        <div class="job-location">Markham, ON</div>
-                    </div>
-                </div>
-                <div class="job-skills">
-                    <div class="skill-tag">SystemVerilog</div>
-                    <div class="skill-tag">UVM</div>
-                    <div class="skill-tag">C++</div>
-                    <div class="skill-tag">Verdi</div>
-                    <div class="skill-tag">VCS</div>
-                </div>
-            </div>
-        </section>
-
-        <section>
-            <h2 class="section-title">education</h2>
-            
-            <div class="education-card">
-                <div class="degree">Bachelor of Engineering, Computer Engineering</div>
-                <div class="university">McMaster University</div>
-                <div class="graduation">Expected Graduation: April 2026</div>
-            </div>
-        </section>
-
-        <section>
-            <h2 class="section-title">interests</h2>
-            
-            <div class="interests-grid">
-                <div class="interest-tag">Hardware Architecture</div>
-                <div class="interest-tag">SoC Design</div>
-                <div class="interest-tag">VLSI & Verification</div>
-                <div class="interest-tag">Embedded Systems</div>
-                <div class="interest-tag">Digital Design</div>
-                <div class="interest-tag">Test Engineering</div>
-                <div class="interest-tag">Power Analysis</div>
-                <div class="interest-tag">Manufacturing Systems</div>
-            </div>
-        </section>
-
-        <section>
-            <h2 class="section-title">projects</h2>
-            
-            <div class="projects-list">
-                <a href="https://github.com/yourprofile/risc-v-processor" target="_blank" class="project-item">
-                    <div class="project-title">
-                        <span>Custom RISC-V Processor</span>
-                        <span class="project-label">HDL</span>
-                    </div>
-                    <div class="project-description">5-stage pipelined processor with hazard detection and forwarding unit</div>
-                </a>
-
-                <a href="https://github.com/yourprofile/fpga-signal-processor" target="_blank" class="project-item">
-                    <div class="project-title">
-                        <span>FPGA-based Signal Processor</span>
-                        <span class="project-label">Verilog</span>
-                    </div>
-                    <div class="project-description">Real-time DSP implementation with optimized memory architecture</div>
-                </a>
-
-                <a href="https://github.com/yourprofile/test-framework" target="_blank" class="project-item">
-                    <div class="project-title">
-                        <span>Automated Test Framework</span>
-                        <span class="project-label">Python</span>
-                    </div>
-                    <div class="project-description">Manufacturing test automation with statistical analysis and reporting</div>
-                </a>
-            </div>
-        </section>
-
-        <section>
-            <h2 class="section-title">contact</h2>
-            
-            <div class="contact-links">
-                <a href="resume.pdf" download class="contact-link">
-                    <span class="contact-icon">📄</span>
-                    <span>Resume</span>
-                </a>
-                <a href="https://linkedin.com/in/yourprofile" target="_blank" class="contact-link">
-                    <span class="contact-icon">💼</span>
-                    <span>LinkedIn</span>
-                </a>
-                <a href="https://github.com/yourprofile" target="_blank" class="contact-link">
-                    <span class="contact-icon">💻</span>
-                    <span>GitHub</span>
-                </a>
-            </div>
-        </section>
-
-        <footer>
-            <p>© 2026 Dinoyan G. All rights reserved.</p>
-        </footer>
+        </div>
+        <div class="profile-section">
+            <div class="profile-btn">D</div>
+        </div>
     </div>
+
+    <!-- Hero -->
+    <section class="hero">
+        <div class="hero-content">
+            <div class="greeting">👋 Hello, I'm</div>
+            <h1 class="hero-name">
+                <span class="name-letter">D</span><span class="name-letter">i</span><span class="name-letter">n</span><span class="name-letter">o</span><span class="name-letter">y</span><span class="name-letter">a</span><span class="name-letter">n</span>
+            </h1>
+            <p class="hero-role">SoC Design Verification & Hardware Test Engineer</p>
+            <div class="hero-location">
+                <svg class="location-icon" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
+                </svg>
+                Toronto, Ontario, Canada
+            </div>
+            <div class="hero-actions">
+                <a href="#experience" class="g-button g-button-filled">View Experience</a>
+                <a href="resume.pdf" download class="g-button g-button-outlined">Download Resume</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <div class="main-content">
+        <!-- Experience -->
+        <section class="content-section" id="experience">
+            <div class="section-header">
+                <div class="section-icon">💼</div>
+                <h2 class="section-title">Experience</h2>
+            </div>
+
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="company-header">
+                        <div class="company-icon">
+                            <img src="Tesla.png" alt="Tesla">
+                        </div>
+                        <div class="company-info">
+                            <div class="job-title">Manufacturing Test Engineering Intern</div>
+                            <div class="company-name">Tesla</div>
+                        </div>
+                    </div>
+                    <div class="job-details">
+                        <div class="job-detail">
+                            <svg class="icon" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M9 11H7v2h2v-2zm4 0h-2v2h2v-2zm4 0h-2v2h2v-2zm2-7h-1V2h-2v2H8V2H6v2H5c-1.11 0-1.99.9-1.99 2L3 20c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 16H5V9h14v11z"/>
+                            </svg>
+                            May 2025 - Sept 2025
+                        </div>
+                        <div class="job-detail">
+                            <svg class="icon" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
+                            </svg>
+                            Fremont, CA
+                        </div>
+                    </div>
+                    <div class="skill-pills">
+                        <div class="skill-pill">Test Equipment Validation</div>
+                        <div class="skill-pill">Electrical Troubleshooting</div>
+                        <div class="skill-pill">CANape</div>
+                        <div class="skill-pill">Oscilloscope</div>
+                        <div class="skill-pill">Linux</div>
+                        <div class="skill-pill">UDS Diagnostics</div>
+                        <div class="skill-pill">Hardware Validation</div>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="company-header">
+                        <div class="company-icon">
+                            <img src="AMD.png" alt="AMD">
+                        </div>
+                        <div class="company-info">
+                            <div class="job-title">SoC Design Verification & Power Analysis Intern</div>
+                            <div class="company-name">AMD</div>
+                        </div>
+                    </div>
+                    <div class="job-details">
+                        <div class="job-detail">
+                            <svg class="icon" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M9 11H7v2h2v-2zm4 0h-2v2h2v-2zm4 0h-2v2h2v-2zm2-7h-1V2h-2v2H8V2H6v2H5c-1.11 0-1.99.9-1.99 2L3 20c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 16H5V9h14v11z"/>
+                            </svg>
+                            May 2024 - May 2025
+                        </div>
+                        <div class="job-detail">
+                            <svg class="icon" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
+                            </svg>
+                            Markham, ON
+                        </div>
+                    </div>
+                    <div class="skill-pills">
+                        <div class="skill-pill">SystemVerilog</div>
+                        <div class="skill-pill">C++</div>
+                        <div class="skill-pill">UVM</div>
+                        <div class="skill-pill">Synopsys VCS</div>
+                        <div class="skill-pill">Verdi</div>
+                        <div class="skill-pill">PowerArtist</div>
+                        <div class="skill-pill">Python</div>
+                        <div class="skill-pill">RTL Optimization</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Education -->
+        <section class="content-section" id="education">
+            <div class="section-header">
+                <div class="section-icon">🎓</div>
+                <h2 class="section-title">Education</h2>
+            </div>
+
+            <div class="edu-card">
+                <div class="edu-icon">🏛️</div>
+                <div class="edu-degree">Bachelor of Engineering, Computer Engineering</div>
+                <div class="edu-school">McMaster University</div>
+                <div class="edu-date">Expected Graduation: April 2026</div>
+            </div>
+        </section>
+
+        <!-- Interests -->
+        <section class="content-section" id="interests">
+            <div class="section-header">
+                <div class="section-icon">⚡</div>
+                <h2 class="section-title">Interests</h2>
+            </div>
+
+            <div class="interests-grid">
+                <div class="interest-item">
+                    <span class="interest-emoji">🎮</span>
+                    <div class="interest-name">GPU Architecture</div>
+                </div>
+                <div class="interest-item">
+                    <span class="interest-emoji">🖥️</span>
+                    <div class="interest-name">CPU Design</div>
+                </div>
+                <div class="interest-item">
+                    <span class="interest-emoji">⚙️</span>
+                    <div class="interest-name">VLSI Design</div>
+                </div>
+                <div class="interest-item">
+                    <span class="interest-emoji">✅</span>
+                    <div class="interest-name">RTL Verification</div>
+                </div>
+                <div class="interest-item">
+                    <span class="interest-emoji">🔌</span>
+                    <div class="interest-name">SoC Architecture</div>
+                </div>
+                <div class="interest-item">
+                    <span class="interest-emoji">🔋</span>
+                    <div class="interest-name">Power Analysis</div>
+                </div>
+                <div class="interest-item">
+                    <span class="interest-emoji">💡</span>
+                    <div class="interest-name">Digital Logic</div>
+                </div>
+                <div class="interest-item">
+                    <span class="interest-emoji">🔬</span>
+                    <div class="interest-name">Chip Design</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects -->
+        <section class="content-section" id="projects">
+            <div class="section-header">
+                <div class="section-icon">🚀</div>
+                <h2 class="section-title">Projects</h2>
+            </div>
+
+            <div class="projects-grid">
+                <a href="https://github.com/ganeshad2/4bit-alu" target="_blank" class="project-card">
+                    <div class="project-header blue"></div>
+                    <div class="project-body">
+                        <div class="project-name">4-bit ALU</div>
+                        <div class="project-tech">SystemVerilog</div>
+                        <div class="project-desc">Implemented a 4-bit Arithmetic-Logic Unit with adding, subtracting and logical operators AND/OR on Xilinx Vivado. Developed test-bench code and synthesized to Xilinx Artix 7 FPGA board.</div>
+                        <div class="project-link">
+                            View on GitHub →
+                        </div>
+                    </div>
+                </a>
+
+                <a href="https://github.com/ganeshad2/dual-port-ram" target="_blank" class="project-card">
+                    <div class="project-header red"></div>
+                    <div class="project-body">
+                        <div class="project-name">8-bit Dual Port RAM</div>
+                        <div class="project-tech">SystemVerilog</div>
+                        <div class="project-desc">Designed and implemented a dual-port memory using Verilog with read/write operations. Learned about resource utilization, Look up Tables (LUT), and RTL design principles.</div>
+                        <div class="project-link">
+                            View on GitHub →
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </section>
+
+        <!-- Contact -->
+        <section class="content-section" id="contact">
+            <div class="section-header">
+                <div class="section-icon">📧</div>
+                <h2 class="section-title">Get in Touch</h2>
+            </div>
+
+            <div class="contact-grid">
+                <a href="resume.pdf" download class="contact-item">
+                    <div class="contact-icon blue">📄</div>
+                    <div class="contact-label">Resume</div>
+                </a>
+                <a href="https://linkedin.com/in/dinoyan" target="_blank" class="contact-item">
+                    <div class="contact-icon red">💼</div>
+                    <div class="contact-label">LinkedIn</div>
+                </a>
+                <a href="https://github.com/ganeshad2" target="_blank" class="contact-item">
+                    <div class="contact-icon green">💻</div>
+                    <div class="contact-label">GitHub</div>
+                </a>
+            </div>
+        </section>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-dots">
+                <div class="footer-dot" style="background: #4285f4;"></div>
+                <div class="footer-dot" style="background: #ea4335;"></div>
+                <div class="footer-dot" style="background: #fbbc04;"></div>
+                <div class="footer-dot" style="background: #34a853;"></div>
+            </div>
+            <div class="footer-text">Made with Google's design language</div>
+        </div>
+    </footer>
 </body>
 </html>
